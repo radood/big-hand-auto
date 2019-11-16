@@ -1,0 +1,68 @@
+{
+  "name": "big-hand-auto/test-auto",
+  "description": "Automated testing",
+  "homepage": "https://www.bighand.com/",
+  "authors": [
+    {
+      "name": "Radu Arsici",
+      "email": "radu.arsici@gmail.com"
+    }
+  ],
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "FeatureContext\\": "src/FeatureContext",
+      "Components\\": "src/Components",
+      "Objects\\": "src/Objects",
+      "Config\\": "src/Config"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:Eagle-Eye-Solutions/BehatHtmlFormatterPlugin.git"
+    }
+  ],
+  "require": {
+    "emuse/behat-html-formatter": "dev-master as 0.1.99",
+    "behat/behat": "^3.4",
+    "behat/mink-extension": "~2.3",
+    "behat/mink-selenium2-driver": "~1.3",
+    "behat/mink-zombie-driver": "@stable",
+    "facebook/webdriver": "dev-community",
+    "phpunit/phpunit": "~5.0",
+    "phpunit/phpunit-selenium": "~3.0",
+    "monolog/monolog": "^1.22",
+    "league/csv": "^8.2",
+    "guzzlehttp/guzzle": "^6.3",
+    "fzaninotto/faker": "@stable"
+  },
+  "extra": {
+    "EESComposer": {
+      "__NOTE": "we allow comments with the __ prefix",
+      "__APP_ENV": "CANNOT DO FOR THIS PROJECT AS ONLY ONE COMPOSER.JSON",
+      "build": "config/build.ini",
+      "directories": {
+        "config": {
+          "mode": "0755"
+        },
+        "report/assets": {
+          "mode": "0777"
+        },
+        "report/history": {
+          "mode": "0777"
+        },
+        "report/html": {
+          "mode": "0777"
+        },
+        "report/screenshots": {
+          "mode": "0777"
+        }
+      },
+      "symlinks": {},
+      "files": {},
+      "callbacks": {}
+    }
+  }
+}

@@ -1,0 +1,50 @@
+# behat.yml
+
+default:
+  autoload:
+    - "%paths.base%/vendor/autoload.php"
+
+  suites:
+    default:
+      paths:
+        - "%paths.base%/test/Features/BigHandLiveSmokePack"
+
+
+      contexts:
+        - FeatureContext\Common\Application
+        - FeatureContext\Home\Home
+        - FeatureContext\CustomerCare\CustomerCare
+
+  formatters:
+      html:
+        output_path: "%paths.base%/report/html"
+
+  extensions:
+    Behat\MinkExtension:
+      sessions:
+        default:
+#          zombie:
+
+          selenium2:
+            wd_host: 'http://localhost:4444/wd/hub'
+
+#      browser_name: 'firefox'
+      browser_name: 'chrome'
+#      browser_name: 'internet explorer'
+
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+      name: html
+      renderer: Twig,Behat2
+      #file_name: Index
+      print_args: true
+      print_outp: true
+      loop_break: true
+local:
+  extensions:
+    Behat\MinkExtension:
+      base_url: 'http://dashboard.local'
+      env_name: 'local'
+live:
+  extensions:
+    Behat\MinkExtension:
+      base_url: 'https://www.bighand.com/'
