@@ -10,7 +10,6 @@ use Components\Helper;
 
 class Home extends Helper
 {
-    protected $scenarioName = '';
 
     /**
      * @When User clicks on contact us button
@@ -22,17 +21,6 @@ class Home extends Helper
     {
         $this->waitForElementVisible($this->btn_contactUs);
         $this->click($this->btn_contactUs);
-    }
-
-    /**
-     * @Then Campaign menu should be visible to User
-     *
-     * @throws \RuntimeException
-     */
-
-    public function verify_campaign_menu_visible()
-    {
-        $this->assertElementVisible($this->mnu_campaigns);
     }
 
 }
